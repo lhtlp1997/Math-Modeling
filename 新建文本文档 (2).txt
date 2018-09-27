@@ -1,0 +1,42 @@
+scatter3(VarName2,VarName14,E2ERTTms,'k+')
+xlabel('初始缓冲峰值速率(kbps)')
+ylabel('初始缓冲下载数据量(byte)')
+zlabel('E2E RTT(ms)')
+
+
+
+plot(fanBlie,Elie,'k+',fanBlie,y)  画直线加散点图
+
+
+plot(E2ERTTms,Elie,'k+',E2ERTTms,ff)
+
+
+zhuanzhi=[ones(size(E2ERTTms)) fanBlie (E2ERTTms.^2) E2ERTTms (fanBlie.*E2ERTTms).^2 (fanBlie.*E2ERTTms)];[b,bint,r,rint,stats]=regress(Elie,zhuanzhi);stats;stats =
+
+   0.8425
+
+    0.0001    9.3818         0    7.1391
+
+
+
+
+
+
+zhuanzhi=[ones(size(Elie)) fanBlie]
+[b,bint,r,rint,stats]=regress(Elie,zhuanzhi)
+
+b=
+528.273792132611
+22026650.2034691
+
+stats=
+0.658695231760567
+169216.498845536
+0
+154724.217262991
+
+y=528.2738+2.2027*10.^7.*fanBlie
+plot(fanBlie,Elie,'k.',fanBlie,y,'r')
+xlabel('1/初始缓冲峰值速率(kbps)')
+ylabel('初始缓冲时延(ms)')
+grid on
